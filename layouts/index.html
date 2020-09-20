@@ -265,7 +265,7 @@
         <div class="col-12 text-center">
           <h2 class="section-title">{{site.Data.homepage.blog.title | markdownify }}</h2>
         </div>
-        {{ range first 3 (where .Site.RegularPages "Section" "blog")}}
+        {{ range first 3 (where .Site.RegularPages "Section" "blog")}}   <!-- Raghu (9/19/2020): fixed a bug with the range; added a where condition to filter for blog posts only and exclude other pages like portfolio -->
         {{ .Render "post" }}
         {{ end }}
       </div>

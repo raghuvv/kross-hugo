@@ -1,0 +1,19 @@
+<!-- Raghu (09/20/2020) : This is not part of Kross theme. Copied form the theme "Capsule" to add a list of tags under the content of each blog post. added reference in single.html-->
+
+
+{{- range $name, $taxonomy := .Site.Taxonomies }}
+  {{- range $key, $value := $.Params }}
+  {{- if eq $key $name }}
+<div class="heading">{{ $name | humanize | title }}:</div>
+<div class="field is-grouped is-grouped-multiline">
+  {{- range $item := $value }}
+  <div class="control">
+    <a href="{{ "/" | relLangURL }}{{ (printf "%s/%s" $name $item) | urlize | lower }}">
+      <span class="tag">{{ $item | humanize | title }}</span>
+    </a>
+  </div>
+  {{- end }}
+</div>
+  {{- end }}
+  {{- end }}
+{{- end }}

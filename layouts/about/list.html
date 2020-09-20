@@ -31,7 +31,7 @@
           <img src="{{.Params.author_image | absURL }}" alt="author"
             class="img-fluid w-100 rounded-lg border-thick border-white">
         </div>
-        <img src="{{.Params.author_signature | absURL }}" alt="signature" class="img-fluid">
+        <!-- <img src="{{.Params.author_signature | absURL }}" alt="signature" class="img-fluid"> -->
         <h4>{{ site.Params.Author }}</h4>
       </div>
     </div>
@@ -101,5 +101,33 @@
   </div>
 </section>
 {{ end }}
+
+<!-- Raghu (09/20/2020) : Added badges collection -->
+<!-- badges -->
+{{ if site.Data.about.badges.enable }}
+{{ with site.Data.about.badges }}
+<section class="section bg-cover" data-background="{{`images/backgrounds/team-bg.png`|relURL}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+      </div>
+      {{ range .badge_item }}
+      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
+        <div class="card text-center">
+          {{ partial "acclaim-badge.html" . }}
+          <div class="card-body">
+            <h4 class="card-title">{{.title }}</h4>
+            <p class="text-light font-secondary">{{ .status }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /badges -->
 
 {{ end }}

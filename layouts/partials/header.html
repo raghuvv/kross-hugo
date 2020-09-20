@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="{{ site.BaseURL }}">
       {{ if site.Params.logo }}
-      <img src="{{ site.Params.logo | absURL }}" alt="{{site.Title}}">
+      <img src="{{ site.Params.logo | absURL }}" alt="{{site.Title}}" height="60px"> <!-- Raghu (09/19/2020 : Applied a height restriction to scale-down the logotype image -->
       {{ else }}
       <h3 class="text-white font-tertiary">{{site.Title}}</h3>
       {{ end }}
